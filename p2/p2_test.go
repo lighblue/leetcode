@@ -15,6 +15,7 @@ func TestAddTwoNumbers(t *testing.T) {
 		{name: "example 1", l1: []int{2, 4, 3}, l2: []int{5, 6, 4}, want: []int{7, 0, 8}},
 		{name: "example 2", l1: []int{0}, l2: []int{0}, want: []int{0}},
 		{name: "example 3", l1: []int{9, 9, 9, 9, 9, 9, 9}, l2: []int{9, 9, 9, 9}, want: []int{8, 9, 9, 9, 0, 0, 0, 1}},
+		{name: "unequal list lengths", l1: []int{1, 8}, l2: []int{0}, want: []int{1, 8}},
 	}
 
 	for _, tt := range tests {
