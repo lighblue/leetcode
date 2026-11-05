@@ -1,5 +1,7 @@
 package p1385
 
+// Submission: 2026.11.05 | Runtime: 0 ms (beats 100%) | Memory: 4.75 MB (beats 96.83%)
+
 import "slices"
 
 func findTheDistanceValue(arr1 []int, arr2 []int, d int) int {

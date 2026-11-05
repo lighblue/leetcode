@@ -1,5 +1,7 @@
 package p462
 
+// Submission: 2026.11.02 | Runtime: 0 ms (beats 100%) | Memory: 6.19 MB (beats 85.14%)
+
 import (
 	"slices"
 )

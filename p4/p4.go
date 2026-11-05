@@ -1,5 +1,7 @@
 package p4
 
+// Submission: 2026.11.02 | Runtime: 0 ms (beats 100%) | Memory: 6.29 MB (beats 83.44%)
+
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {
 	mid1, mid2 := 0, 0
 	len1, len2 := len(nums1), len(nums2)
