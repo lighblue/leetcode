@@ -1,5 +1,6 @@
 | 题号 / Problem | 解法 / Solution | 提交日期 / Submission Date | 用时击败 / Runtime Beats | 内存击败 / Memory Beats |
 | --- | --- | --- | --- | --- |
+| 2747 | [`countServers`](p2747/p2747.go) | 2026-11-14 | 42.80%（26 ms） | 26.27%（23.7 MB） |
 | 1 | [`twoSum`](p1/p1.go) | 2026-11-05 | 100%（0 ms） | 84.35%（5.31 MB） |
 | 2 | [`addTwoNumbers`](p2/p2.go) | 2026-11-05 | 100%（0 ms） | 98.05%（5.8 MB） |
 | 1385 | [`findTheDistanceValue`](p1385/p1385.go) | 2026-11-05 | 100%（0 ms） | 96.83%（4.75 MB） |
