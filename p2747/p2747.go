@@ -11,7 +11,13 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	slices.SortFunc(logs, func(a, b []int) int {
 		return cmp.Compare(a[1], b[1])
 	})
-	SortedQueries := convertQueries(queries)
+	idx := make([]int, len(queries))
+	for i := range idx {
+		idx[i] = i
+	}
+	slices.SortFunc(idx, func(a, b int) int {
+		return queries[a] - queries[b]
+	})
 
 	minT, maxT := logs[0][1], logs[len(logs)-1][1]
 
@@ -20,13 +26,13 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 	results := make([]int, len(queries))
 	hits := make([]int, n)
 	lastLoopLeft, lastLoopRight, count := 0, 0, n
-	for _, query := range SortedQueries {
-		if query[0]-x > maxT || query[0] < minT {
-			results[query[1]] = n
+	for _, index := range idx {
+		if queries[index]-x > maxT || queries[index] < minT {
+			results[index] = n
 			continue
 		}
-		loopLeft := max(query[0]-x, minT) - minT
-		loopRight := min(query[0], maxT) - minT + 1
+		loopLeft := max(queries[index]-x, minT) - minT
+		loopRight := min(queries[index], maxT) - minT + 1
 		for _, log := range logs[max(lastLoopRight, loopLeft):loopRight] {
 			for _, server := range log {
 				hits[server-1]++
@@ -45,7 +51,7 @@ func countServers(n int, logs [][]int, x int, queries []int) []int {
 		}
 		lastLoopLeft, lastLoopRight = loopLeft, loopRight
 
-		results[query[1]] = count
+		results[index] = count
 	}
 	return results
 }
@@ -67,14 +73,4 @@ func slim(logs [][]int) [][]int {
 		newLogs[t-minT] = log[:1]
 	}
 	return newLogs
-}
-
-func convertQueries(queries []int) [][2]int {
-	newQueries := make([][2]int, len(queries))
-	for i := range queries {
-		newQueries[i] = [2]int{queries[i], i}
-	}
-
-	slices.SortFunc(newQueries, func(a, b [2]int) int { return cmp.Compare(a[0], b[0]) })
-	return newQueries
 }
